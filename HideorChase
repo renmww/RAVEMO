@@ -3,7 +3,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 
 
 function Script()
-    local Window = Library.CreateLib("Hide or Chase", "Synapse")
+    local Window = Library.CreateLib("YTScript", "Synapse")
 
 
 
@@ -61,7 +61,14 @@ end
     end)
 
     MainSection:NewButton("Dupe item (ShotGun)", "Give you infinite yield script.", function()
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "ShotGun" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
     end)
 
     MainSection:NewButton("Dupe item (superlaserGun)", "Give you infinite yield script.", function()
