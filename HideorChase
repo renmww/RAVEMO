@@ -1,0 +1,174 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+
+
+function Script()
+    local Window = Library.CreateLib("Hide or Chase", "Synapse")
+
+
+
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+
+
+    -- Script
+
+    MainSection:NewSlider("Walkspeed", "Changes how fast you walk.", 250, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+
+    MainSection:NewSlider("JumpPower", "Changes how fast you jump.", 250, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+
+    MainSection:NewButton("Infinite Yield", "Give you infinite yield script.", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+    end)
+
+    MainSection:NewButton("Admin You", "Give you infinite yield script.", function()
+        local Icon = require(game:GetService("ReplicatedStorage").AdminPanelRemotes.Icon)
+local player = game.Players.LocalPlayer
+
+-- 直接为本地玩家创建图标
+local playerIcon = Icon.new()
+	:setImage(8630900628) -- 设置图标图像
+	:setCornerRadius(0, 8) -- 设置图标圆角
+	:bindEvent("selected", function(icon)
+		-- 当图标被选中时，显示 AdminPanel
+		player.PlayerGui.AdminPanel.Frame:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.2)
+	end)
+	:bindEvent("deselected", function()
+		-- 当图标被取消选中时，隐藏 AdminPanel
+		player.PlayerGui.AdminPanel.Frame:TweenPosition(UDim2.new(0.5, 0, -1, 0), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.2)
+	end)
+
+    end)
+
+    MainSection:NewButton("CorruptorSword KIllAura", "Give you infinite yield script.", function()
+        local player = game:GetService("Players").LocalPlayer
+
+-- 确保角色和CorruptorSword存在
+while true do
+    if player.Character and player.Character:FindFirstChild("CorruptorSword") then
+        local remoteEvent = player.Character.CorruptorSword:FindFirstChild("RemoteEvent")
+        if remoteEvent then
+            remoteEvent:FireServer()
+        end
+    end
+    wait(0.1) -- 每0.1秒触发一次，根据需要调整频率
+end
+
+    end)
+
+    MainSection:NewButton("Dupe item (ShotGun)", "Give you infinite yield script.", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+    end)
+
+    MainSection:NewButton("Dupe item (superlaserGun)", "Give you infinite yield script.", function()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "superlaserGun" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
+
+    end)
+
+    MainSection:NewButton("Dupe item (laserGun)", "Give you infinite yield script.", function()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "laserGun" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
+
+    end)
+
+    MainSection:NewButton("Dupe item (TrowelBearTrap)", "Give you infinite yield script.", function()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "TrowelBearTrap" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
+
+    end)
+
+    MainSection:NewButton("Dupe item (Trowel)", "Give you infinite yield script.", function()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "Trowel" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
+
+    end)
+
+    MainSection:NewButton("Dupe item (RocketLauncher)", "Give you infinite yield script.", function()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "RocketLauncher" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
+
+    end)
+
+    MainSection:NewButton("Dupe item (Handgun)", "Give you infinite yield script.", function()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "Handgun" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
+
+    end)
+
+    MainSection:NewButton("Dupe item (Grappling Hook)", "Give you infinite yield script.", function()
+        local player = game.Players.LocalPlayer -- 获取本地玩家
+
+local args = {
+    [1] = player.UserId, -- 设置为本地玩家ID
+    [2] = "Grappling Hook" -- 工具名称
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
+
+    end)
+
+    MainSection:NewToggle("Infinite Jump", "Lets you infinitely jump", function()
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+    end)
+
+
+    -- Credits
+
+
+    local Credits = Window:NewTab("Credits")
+    local CreditsSection = Credits:NewSection("Credits")
+
+
+    CreditsSection:NewLabel("Created by Falxe")
+    
+
+
+end
+
+Script()
