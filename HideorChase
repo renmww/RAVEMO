@@ -25,23 +25,9 @@ function Script()
         loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
     end)
 
-    MainSection:NewButton("Admin You", "Give you infinite yield script.", function()
-        local Icon = require(game:GetService("ReplicatedStorage").AdminPanelRemotes.Icon)
+    MainSection:NewButton("Admin You", "", function()
 local player = game.Players.LocalPlayer
-
--- 直接为本地玩家创建图标
-local playerIcon = Icon.new()
-	:setImage(8630900628) -- 设置图标图像
-	:setCornerRadius(0, 8) -- 设置图标圆角
-	:bindEvent("selected", function(icon)
-		-- 当图标被选中时，显示 AdminPanel
-		player.PlayerGui.AdminPanel.Frame:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.2)
-	end)
-	:bindEvent("deselected", function()
-		-- 当图标被取消选中时，隐藏 AdminPanel
-		player.PlayerGui.AdminPanel.Frame:TweenPosition(UDim2.new(0.5, 0, -1, 0), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.2)
-	end)
-
+player.PlayerGui.AdminPanel.Frame:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.2)
     end)
 
     MainSection:NewButton("CorruptorSword KIllAura", "Give you infinite yield script.", function()
@@ -153,6 +139,27 @@ local args = {
 
 game:GetService("ReplicatedStorage"):WaitForChild("AdminPanelRemotes"):WaitForChild("Tool"):FireServer(unpack(args))
 
+    end)
+
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer -- 获取本地玩家
+    
+    local function addCoinsToLocalPlayer(amount)
+        -- 获取本地玩家的 leaderstats
+        local leaderstats = player:FindFirstChild("leaderstats")
+        if leaderstats then
+            local coins = leaderstats:FindFirstChild("Coins")
+            if coins then
+                coins.Value = coins.Value + amount -- 增加金币数量
+            end
+        end
+    end
+
+    MainSection:NewButton("Shop Hack", "Give you infinite yield script.", function()
+        while true do
+            addCoinsToLocalPlayer(100) -- 每次增加100金币
+            wait(0.2) -- 等待5秒后再增加，可以根据需要调整时间
+        end
     end)
 
     MainSection:NewToggle("Infinite Jump", "Lets you infinitely jump", function()
